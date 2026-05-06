@@ -19,7 +19,7 @@
     <style>
         body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 0; margin: 0; background-color: #f8f9fa; color: #333; }
         
-        /* Navigation Menu */
+        /* Navigation Menu - Cleaned */
         nav { background-color: #2c3e50; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 16px; transition: color 0.3s; }
         nav a:hover { color: #3498db; }
@@ -44,7 +44,10 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 20px; }
         .card { background: #ffffff; border: 1px solid #e0e0e0; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease; text-align: center; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: #3498db; }
-        .icon { font-size: 50px; margin-bottom: 20px; display: block; }
+        
+        /* Tool Images Styling */
+        .tool-img { width: 80px; height: 80px; object-fit: contain; margin-bottom: 15px; border-radius: 8px; }
+        
         h3 { margin: 15px 0; color: #2c3e50; font-size: 1.5rem; }
         p { color: #666; font-size: 15px; margin-bottom: 25px; }
         .btn { background-color: #3498db; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block; width: 80%; transition: background 0.3s; }
@@ -69,13 +72,11 @@
 </head>
 <body>
 
-    <!-- Navigation Menu -->
+    <!-- Navigation Menu (Cleaned: Only Home, Reviews, Categories) -->
     <nav>
         <a href="index.html">Home</a>
         <a href="#reviews">Reviews</a>
         <a href="#categories">Categories</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
     </nav>
 
     <div class="container">
@@ -105,44 +106,45 @@
         <h2 style="text-align: center; color: #2c3e50; margin-bottom: 30px;" id="reviews">Featured AI Tools</h2>
 
         <div class="grid">
-            <!-- Product 1 -->
+            <!-- Product 1: Tube Magic -->
             <div class="card">
-                <span class="icon">🚀</span>
-                <h3>AI Side Hustle System</h3>
-                <p>Learn how to make money online using ChatGPT and AI. Complete beginner's guide with actionable steps.</p>
-                <a href="review-chatgpt.html" class="btn">Read Full Review →</a>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="card">
-                <span class="icon">📺</span>
+                <!-- Direct Image Link (Placeholder) -->
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Tube Magic AI" class="tool-img">
                 <h3>Tube Magic AI</h3>
                 <p>Grow your YouTube channel with AI. Get viral ideas, titles, and tags instantly to save hours of work.</p>
                 <a href="review-tubemagic.html" class="btn">Read Full Review →</a>
             </div>
 
-            <!-- Product 3 -->
+            <!-- Product 2: SEO Bundle -->
             <div class="card">
-                <span class="icon">📚</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="SEO Bundle" class="tool-img">
                 <h3>SEO & Marketing Bundle</h3>
                 <p>41 Premium Ebooks on SEO, Pinterest, and Social Media Marketing. Lifetime access for digital creators.</p>
                 <a href="review-seo-ebooks.html" class="btn">Read Full Review →</a>
             </div>
 
-            <!-- Product 4 -->
+            <!-- Product 3: Grammarly -->
             <div class="card">
-                <span class="icon">✍️</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968853.png" alt="Grammarly AI" class="tool-img">
                 <h3>Grammarly AI</h3>
                 <p>The best AI writing assistant for error-free emails, blogs, and documents. Boost your professionalism.</p>
                 <a href="review-grammarly.html" class="btn">Read Full Review →</a>
             </div>
 
-            <!-- Product 5 -->
+            <!-- Product 4: Notion AI -->
             <div class="card">
-                <span class="icon">🧠</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968888.png" alt="Notion AI" class="tool-img">
                 <h3>Notion AI</h3>
                 <p>Boost productivity with AI-powered notes, summaries, and task management within Notion workspace.</p>
                 <a href="review-notion.html" class="btn">Read Full Review →</a>
+            </div>
+
+            <!-- Product 5: ChatGPT Side Hustle -->
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/4359/4359960.png" alt="AI Side Hustle" class="tool-img">
+                <h3>AI Side Hustle System</h3>
+                <p>Learn how to make money online using ChatGPT and AI. Complete beginner's guide with actionable steps.</p>
+                <a href="review-chatgpt.html" class="btn">Read Full Review →</a>
             </div>
         </div>
 
@@ -150,7 +152,6 @@
         <div class="email-box">
             <h3>📩 Get Our Free AI Cheat Sheet</h3>
             <p>Join our newsletter to get weekly AI tips, tool deals, and exclusive guides delivered to your inbox.</p>
-            <!-- Note: This is a visual placeholder. To make it functional, we will integrate Mailchimp later. -->
             <form action="#" style="margin-top: 20px;">
                 <input type="email" placeholder="Enter your email address" required>
                 <button type="submit">Subscribe Free</button>
@@ -186,7 +187,6 @@
                 <h4>Contact Us</h4>
                 <ul>
                     <li>Email: <a href="mailto:contact@aitoolspoint.site">contact@aitoolspoint.site</a></li>
-                    <!-- Social Links Removed for now -->
                 </ul>
             </div>
         </div>
