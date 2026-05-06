@@ -16,7 +16,7 @@
     <style>
         body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 0; margin: 0; background-color: #f8f9fa; color: #333; }
         
-        /* Navigation Menu - Cleaned */
+        /* Navigation Menu */
         nav { background-color: #2c3e50; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 16px; transition: color 0.3s; }
         nav a:hover { color: #3498db; }
@@ -47,10 +47,17 @@
         
         h3 { margin: 15px 0; color: #2c3e50; font-size: 1.5rem; }
         p { color: #666; font-size: 15px; margin-bottom: 25px; }
-        .btn { background-color: #3498db; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block; width: 80%; transition: background 0.3s; }
+        
+        /* Button Styles */
+        .btn-group { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+        .btn { background-color: #3498db; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; width: 100%; box-sizing: border-box; transition: background 0.3s; text-align: center; }
         .btn:hover { background-color: #2980b9; }
+        
         .btn-secondary { background-color: #8e44ad; } /* Purple for Writelytic */
         .btn-secondary:hover { background-color: #732d91; }
+        
+        .btn-outline { background-color: transparent; color: #3498db; border: 2px solid #3498db; }
+        .btn-outline:hover { background-color: #3498db; color: white; }
 
         /* Email Capture Section */
         .email-box { background: #ffffff; padding: 40px; border-radius: 12px; text-align: center; margin: 50px 0; border: 2px solid #3498db; box-shadow: 0 4px 20px rgba(52, 152, 219, 0.1); }
@@ -71,7 +78,7 @@
 </head>
 <body>
 
-    <!-- Navigation Menu (Cleaned: Only Home, Reviews, Categories) -->
+    <!-- Navigation Menu -->
     <nav>
         <a href="index.html">Home</a>
         <a href="#reviews">Reviews</a>
@@ -109,47 +116,64 @@
             <div class="card">
                 <img src="https://cdn-1.webcatalog.io/catalog/tubemagic/tubemagic-icon-filled-256.webp?v=1720433042495" alt="Tube Magic AI" class="tool-img">
                 <h3>Tube Magic AI</h3>
-                <p>Grow your YouTube channel with AI. Get viral ideas, titles, and tags instantly to save hours of work.</p>
-                <a href="https://tubemagic.com/ds#aff=eruslankhanf027" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                <p>Grow your YouTube channel with AI. Get viral ideas, titles, and tags instantly.</p>
+                <div class="btn-group">
+                    <a href="review-tubemagic.html" class="btn btn-outline">Read Full Review</a>
+                    <a href="https://tubemagic.com/ds#aff=eruslankhanf027" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                </div>
             </div>
 
             <!-- Product 2: SEO Bundle -->
             <div class="card">
                 <img src="https://www.digistore24-app.com/pb/img/merchant_1435206/image/product/JP1WDWG1.png" alt="SEO Bundle" class="tool-img">
                 <h3>SEO & Marketing Bundle</h3>
-                <p>41 Premium Ebooks on SEO, Pinterest, and Social Media Marketing. Lifetime access for digital creators.</p>
-                <a href="https://41ebookset3.neoseotools.com/#aff=eruslankhanf027" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                <p>41 Premium Ebooks on SEO, Pinterest, and Social Media Marketing. Lifetime access.</p>
+                <div class="btn-group">
+                    <a href="review-seo-ebooks.html" class="btn btn-outline">Read Full Review</a>
+                    <a href="https://41ebookset3.neoseotools.com/#aff=eruslankhanf027" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                </div>
             </div>
 
             <!-- Product 3: Writelytic -->
             <div class="card">
                 <img src="https://writelytic.com/logo.png" alt="Writelytic" class="tool-img">
                 <h3>Writelytic</h3>
-                <p>Create, whitelabel, and resell your own AI tools without coding. Perfect for agencies and entrepreneurs.</p>
-                <a href="https://writelytic.com/#aff=eruslankhanf027" class="btn btn-secondary" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                <p>Create, whitelabel, and resell your own AI tools without coding.</p>
+                <div class="btn-group">
+                    <a href="review-writelytic.html" class="btn btn-outline">Read Full Review</a>
+                    <a href="https://writelytic.com/#aff=eruslankhanf027" class="btn btn-secondary" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                </div>
             </div>
 
-            <!-- Product 4: Grammarly (Direct Link) -->
+            <!-- Product 4: Grammarly (Placeholder for now) -->
             <div class="card">
                 <img src="https://cdn-icons-png.flaticon.com/512/5968/5968853.png" alt="Grammarly AI" class="tool-img">
                 <h3>Grammarly AI</h3>
-                <p>The best AI writing assistant for error-free emails, blogs, and documents. Boost your professionalism.</p>
-                <a href="https://grammarly.com/?aff=YOUR_ID" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                <p>The best AI writing assistant for error-free emails and blogs.</p>
+                <div class="btn-group">
+                    <!-- TODO: Create review-grammarly.html later -->
+                    <a href="#" class="btn btn-outline" style="pointer-events: none; opacity: 0.6;">Review Coming Soon</a>
+                    <a href="https://grammarly.com/?aff=YOUR_ID" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                </div>
             </div>
 
-            <!-- Product 5: Notion AI (Direct Link) -->
+            <!-- Product 5: Notion AI (Placeholder for now) -->
             <div class="card">
                 <img src="https://cdn-icons-png.flaticon.com/512/5968/5968888.png" alt="Notion AI" class="tool-img">
                 <h3>Notion AI</h3>
-                <p>Boost productivity with AI-powered notes, summaries, and task management within Notion workspace.</p>
-                <a href="https://notion.so/?aff=YOUR_ID" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                <p>Boost productivity with AI-powered notes and task management.</p>
+                <div class="btn-group">
+                    <!-- TODO: Create review-notion.html later -->
+                    <a href="#" class="btn btn-outline" style="pointer-events: none; opacity: 0.6;">Review Coming Soon</a>
+                    <a href="https://notion.so/?aff=YOUR_ID" class="btn" target="_blank" rel="sponsored nofollow noopener">Get Deal →</a>
+                </div>
             </div>
         </div>
 
         <!-- Email Capture Section -->
         <div class="email-box">
             <h3>📩 Get Our Free AI Cheat Sheet</h3>
-            <p>Join our newsletter to get weekly AI tips, tool deals, and exclusive guides delivered to your inbox.</p>
+            <p>Join our newsletter to get weekly AI tips, tool deals, and exclusive guides.</p>
             <form action="#" method="POST" style="margin-top: 20px;">
                 <input type="email" name="email" placeholder="Enter your email address" required>
                 <button type="submit">Subscribe Free</button>
@@ -158,12 +182,12 @@
         </div>
     </div>
 
-    <!-- Professional Footer with All Links -->
+    <!-- Professional Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-col">
                 <h4>AI Tools Point</h4>
-                <p style="color: #bdc3c7; font-size: 0.9rem;">Your trusted source for honest AI software reviews and productivity guides.</p>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">Your trusted source for honest AI software reviews.</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -190,7 +214,7 @@
         </div>
         <div class="copyright">
             &copy; 2026 AI Tools Point. All rights reserved. <br>
-            <small>Disclosure: We may earn a commission from links on this page at no extra cost to you.</small>
+            <small>Disclosure: We may earn a commission from links on this page.</small>
         </div>
     </footer>
 
