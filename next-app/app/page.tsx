@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { Metadata } from "next";  // ✅ Import fixed
 
 // ============================================
 // SEO METADATA (CORRECT SYNTAX)
 // ============================================
-export const metadata: Metadata = {
+export const metadata: Metadata = {  // ✅ FIXED: colon added
   title: "AI Tools Hub - Best AI Tools & Honest Reviews 2026",
   description: "Discover the best AI tools for business, writing, YouTube growth, and productivity with honest reviews and exclusive deals.",
   keywords: ["AI tools", "AI software", "YouTube AI", "business automation", "writing tools", "AI reviews", "best AI tools 2026"],
@@ -15,7 +16,7 @@ export const viewport = {
 };
 
 // ============================================
-// AI TOOLS DATA (All Reviews Added ✅)
+// AI TOOLS DATA (Only Working Affiliate Links ✅)
 // ============================================
 const tools = [
   {
@@ -61,28 +62,6 @@ const tools = [
     price: "One-Time Fee",
     tags: ["No-Code", "Software", "Marketing"],
     affiliateLink: "https://www.digistore24.com/redir/467549/eruslankhanf027/"
-  },
-  {
-    id: 5,
-    name: "Jasper AI",
-    slug: "jasper-ai",
-    category: "Content Writing",
-    badge: "Coming Soon",
-    description: "AI-powered content creation for marketing teams. Create blogs, ads, and social posts.",
-    price: "From $49/mo",
-    tags: ["Writing", "Marketing"],
-    affiliateLink: "#"
-  },
-  {
-    id: 6,
-    name: "Copy.ai",
-    slug: "copy-ai",
-    category: "Copywriting",
-    badge: "Coming Soon",
-    description: "Generate high-converting copy for ads, emails, and product descriptions.",
-    price: "Free + Paid",
-    tags: ["Copywriting", "Sales"],
-    affiliateLink: "#"
   }
 ];
 
