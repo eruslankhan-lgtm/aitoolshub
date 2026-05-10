@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 // ============================================
-// SEO METADATA
+// SEO METADATA (Fixed Syntax)
 // ============================================
-export const metadata = {
+export const meta Metadata = {
   title: "AI Tools Hub - Best AI Tools & Honest Reviews 2026",
   description: "Discover the best AI tools for business, writing, YouTube growth, and productivity with honest reviews and exclusive deals.",
   keywords: ["AI tools", "AI software", "YouTube AI", "business automation", "writing tools", "AI reviews", "best AI tools 2026"],
@@ -15,86 +15,75 @@ export const viewport = {
 };
 
 // ============================================
-// AI TOOLS DATA (Tube Magic Added ✅)
+// AI TOOLS DATA (All New Reviews Added ✅)
 // ============================================
 const tools = [
   {
     id: 1,
-    name: "Jasper AI",
-    slug: "jasper-ai",
-    category: "Content Writing",
-    badge: "Editor's Choice",
-    description: "AI-powered content creation for marketing teams. Create blogs, ads, and social posts in seconds.",
-    price: "From $49/mo",
-    tags: ["Writing", "Marketing", "SEO"],
-    affiliateLink: "https://your-affiliate-link.com/jasper",
-  },
-  {
-    id: 2,
-    name: "Copy.ai",
-    slug: "copy-ai",
-    category: "Copywriting",
-    badge: "Best Free Plan",
-    description: "Generate high-converting copy for ads, emails, and product descriptions with AI.",
-    price: "Free + Paid",
-    tags: ["Copywriting", "Sales", "Emails"],
-    affiliateLink: "https://your-affiliate-link.com/copyai",
-  },
-  {
-    id: 3,
-    name: "Midjourney",
-    slug: "midjourney",
-    category: "Image Generation",
-    badge: "Most Popular",
-    description: "Create stunning AI-generated artwork and images. Perfect for designers and creators.",
-    price: "$10/mo",
-    tags: ["Images", "Design", "Art"],
-    affiliateLink: "https://your-affiliate-link.com/midjourney",
-  },
-  {
-    id: 4,
-    name: "ChatGPT Plus",
-    slug: "chatgpt-plus",
-    category: "AI Assistant",
-    badge: "Must Have",
-    description: "Advanced AI chatbot for answering questions, writing help, coding, and productivity.",
-    price: "$20/mo",
-    tags: ["Chatbot", "Productivity", "Learning"],
-    affiliateLink: "https://your-affiliate-link.com/chatgpt",
-  },
-  {
-    id: 5,
-    name: "Grammarly",
-    slug: "grammarly",
-    category: "Writing Assistant",
-    badge: "Free Available",
-    description: "AI-powered writing assistant that helps you write clear, mistake-free content.",
-    price: "Free + Premium",
-    tags: ["Writing", "Grammar", "Editing"],
-    affiliateLink: "https://your-affiliate-link.com/grammarly",
-  },
-  {
-    id: 6,
-    name: "Notion AI",
-    slug: "notion-ai",
-    category: "Productivity",
-    badge: "All-in-One",
-    description: "AI assistant built into Notion. Write, brainstorm, edit, and summarize effortlessly.",
-    price: "$10/mo",
-    tags: ["Notes", "Productivity", "Organization"],
-    affiliateLink: "https://your-affiliate-link.com/notion",
-  },
-  {
-    id: 7,
     name: "Tube Magic AI",
-    slug: "tube-magic", // ✅ Review page se match karta hai
+    slug: "tube-magic",
     category: "YouTube Growth",
-    badge: "New Review",
+    badge: "Top Rated",
     description: "AI-powered assistant for YouTube creators. Generate viral titles, tags, and ideas in seconds.",
     price: "$29/mo",
     tags: ["YouTube", "SEO", "Video AI"],
-    affiliateLink: "https://tubemagic.com/ds#aff=eruslankhanf027",
+    affiliateLink: "https://tubemagic.com/ds#aff=eruslankhanf027"
   },
+  {
+    id: 2,
+    name: "SEO & Marketing Ebooks Bundle",
+    slug: "seo-ebooks",
+    category: "Digital Marketing",
+    badge: "Best Value",
+    description: "Lifetime access to 41 premium guides on SEO, Pinterest, Affiliate Marketing & more.",
+    price: "~$27 (One-Time)",
+    tags: ["SEO", "Marketing", "Ebooks"],
+    affiliateLink: "https://41ebookset3.neoseotools.com/#aff=eruslankhanf027"
+  },
+  {
+    id: 3,
+    name: "AI Book Writer",
+    slug: "ai-book-writer",
+    category: "Writing Software",
+    badge: "New Release",
+    description: "Write complete books & textbooks using GPT-5 & local AI. Lifetime desktop license.",
+    price: "€29.99 (One-Time)",
+    tags: ["Writing", "AI", "Self-Publishing"],
+    affiliateLink: "https://www.aibookwriter.de/en#aff=eruslankhanf027"
+  },
+  {
+    id: 4,
+    name: "Remixable",
+    slug: "remixable",
+    category: "Business Automation",
+    badge: "All-in-One",
+    description: "Build websites, create videos & develop software without coding. Founder pricing available.",
+    price: "One-Time Fee",
+    tags: ["No-Code", "Software", "Marketing"],
+    affiliateLink: "https://www.digistore24.com/redir/467549/eruslankhanf027/"
+  },
+  {
+    id: 5,
+    name: "Jasper AI",
+    slug: "jasper-ai",
+    category: "Content Writing",
+    badge: "Coming Soon",
+    description: "AI-powered content creation for marketing teams. Create blogs, ads, and social posts.",
+    price: "From $49/mo",
+    tags: ["Writing", "Marketing"],
+    affiliateLink: "#"
+  },
+  {
+    id: 6,
+    name: "Copy.ai",
+    slug: "copy-ai",
+    category: "Copywriting",
+    badge: "Coming Soon",
+    description: "Generate high-converting copy for ads, emails, and product descriptions.",
+    price: "Free + Paid",
+    tags: ["Copywriting", "Sales"],
+    affiliateLink: "#"
+  }
 ];
 
 // ============================================
