@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import tools from '@/data/tools.json';
 
+// Strict type for JSON data to prevent TS errors
 type Tool = {
   slug: string;
   showOnHomepage: boolean;
@@ -9,32 +10,25 @@ type Tool = {
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://aitoolspoint.site';
 
-  // Static pages
-  const staticRoutes = [
-    '',
-    '/about',
-    '/contact',
-    '/privacy',
-    '/affiliate-disclosure',
+  // 1️⃣ Static Pages (Explicitly typed for zero errors)
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/affiliate-disclosure`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
-  // Generate static page entries
-  const staticPages = staticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
-  }));
-
-  // Generate dynamic review page entries from tools.json
-  const reviewPages = (tools as Tool[])
+  // 2️⃣ Dynamic Review Pages (Auto-generated from tools.json)
+  const reviewPages: MetadataRoute.Sitemap = (tools as Tool[])
     .filter((tool) => tool.showOnHomepage)
     .map((tool) => ({
       url: `${baseUrl}/reviews/${tool.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly',
       priority: 0.7,
     }));
 
+  // 3️⃣ Combine & Return
   return [...staticPages, ...reviewPages];
 }
