@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import { Metadata, Viewport } from 'next';
 
-// ✅ SEO Metadata (CORRECT SYNTAX)
+// ✅ FIXED SYNTAX (colon added, space removed)
 export const metadata: Metadata = {
   title: 'Affiliate Disclosure - AI Tools Point',
-  description: 'Learn how AI Tools Point earns commissions through affiliate links. Full transparency about our review process and partnerships.',
+  description: 'Learn how AI Tools Point earns commissions through affiliate links. Full transparency about our review process.',
 };
 
-// ✅ Viewport (CORRECT SYNTAX)
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -32,28 +31,21 @@ export default function AffiliateDisclosurePage() {
           <section>
             <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">🔗 How We Earn Commissions</h2>
             <p>
-              AI Tools Point participates in various affiliate marketing programs. This means we may get paid commissions on editorially chosen products purchased through our links to retailer sites. When you click on an affiliate link and make a purchase, we receive a small percentage of the sale at <strong>no extra cost to you</strong>.
+              AI Tools Point participates in various affiliate marketing programs. When you click on an affiliate link and make a purchase, we receive a small percentage of the sale at <strong>no extra cost to you</strong>. This commission helps us maintain the site and continue testing AI tools.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">✅ Our Commitment to Honesty</h2>
             <p>
-              We only recommend products and services that we have personally researched, tested, or genuinely believe will provide value to our readers. Our editorial team makes all review decisions independently. Affiliate commissions <strong>never influence</strong> our ratings, recommendations, or the content of our reviews.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">💡 Why Your Support Matters</h2>
-            <p>
-              Running a professional review site requires time, hosting, research, and continuous testing. Your support through affiliate purchases helps us keep AI Tools Point free to use and allows us to continue providing in-depth, unbiased reviews of the latest AI tools.
+              We only recommend products that we have personally researched or genuinely believe provide value. Our editorial team makes all review decisions independently. Affiliate commissions <strong>never influence</strong> our ratings or recommendations.
             </p>
           </section>
 
           <section className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-            <h3 className="font-bold text-blue-800 mb-2">📧 Questions About This Policy?</h3>
+            <h3 className="font-bold text-blue-800 mb-2">📧 Questions?</h3>
             <p className="text-gray-600">
-              If you have any questions about our affiliate partnerships, review process, or this disclosure, please reach out to us:
+              If you have any questions about our affiliate partnerships or this policy, reach out to us at:
             </p>
             <a href="mailto:contact@aitoolspoint.site" className="inline-block mt-3 text-blue-600 font-semibold hover:underline">
               contact@aitoolspoint.site
