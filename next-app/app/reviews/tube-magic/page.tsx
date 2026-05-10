@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import Script from 'next/script';
 
-// ✅ SEO Metadata
-export const meta Metadata = {
+// ✅ SEO Metadata (FIXED SYNTAX)
+export const metadata: Metadata = {
   title: 'Tube Magic AI Review 2026: Best AI for YouTube Growth? - AI Tools Point',
   description: 'In-depth Tube Magic AI review. Features, pricing, pros/cons, and comparison with VidIQ & TubeBuddy. Is it worth it for YouTube creators in 2026?',
   keywords: 'Tube Magic AI review, YouTube AI tool, AI title generator, YouTube SEO, VidIQ alternative, TubeBuddy alternative',
@@ -83,7 +83,7 @@ export default function TubeMagicReview() {
               Creating consistent content on YouTube is hard. Coming up with viral ideas, writing click-worthy titles, and optimizing tags can take hours. What if an AI could do it for you in seconds?
             </p>
             <p className="text-gray-700 leading-relaxed text-lg mb-6">
-              Enter <strong>Tube Magic AI</strong>. This tool promises to automate the most tedious parts of YouTube SEO and ideation. But does it really work? In this detailed review, we’ll explore its features, pricing, pros and cons, and compare it with competitors like VidIQ and TubeBuddy.
+              Enter <strong>Tube Magic AI</strong>. This tool promises to automate the most tedious parts of YouTube SEO and ideation. But does it really work? In this detailed review, we'll explore its features, pricing, pros and cons, and compare it with competitors like VidIQ and TubeBuddy.
             </p>
             <div className="text-center">
               <a href={affiliateLink} target="_blank" rel="sponsored nofollow noopener"
@@ -107,8 +107,8 @@ export default function TubeMagicReview() {
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Key Features of Tube Magic AI</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { title: "1. AI Title Generator", desc: "Generates multiple catchy, high-CTR title options based on your video topic. Analyzes what’s currently working on YouTube to suggest titles that grab attention." },
-                { title: "2. Smart Tag Optimizer", desc: "Suggests relevant, high-ranking tags that improve your video’s discoverability in search results and suggested videos." },
+                { title: "1. AI Title Generator", desc: "Generates multiple catchy, high-CTR title options based on your video topic. Analyzes what's currently working on YouTube to suggest titles that grab attention." },
+                { title: "2. Smart Tag Optimizer", desc: "Suggests relevant, high-ranking tags that improve your video's discoverability in search results and suggested videos." },
                 { title: "3. Viral Idea Brainstorming", desc: "Provides endless video concepts based on trending niches and keywords. Helps you stay ahead by identifying popular topics before they become saturated." },
                 { title: "4. Description Writer", desc: "Automatically drafts engaging descriptions that include relevant keywords, timestamps, and calls-to-action, saving you significant time." }
               ].map((feat, i) => (
@@ -147,10 +147,10 @@ export default function TubeMagicReview() {
                   </tr>
                 </thead>
                 <tbody className="text-gray-600">
-                  <tr className="border-b"><td className="p-4">AI Generation</td><td className="p-4 text-green-600 font-medium">✅ Advanced AI for Titles/Ideas</td><td className="p-4">️ Basic AI features</td></tr>
+                  <tr className="border-b"><td className="p-4">AI Generation</td><td className="p-4 text-green-600 font-medium">✅ Advanced AI for Titles/Ideas</td><td className="p-4">⚠️ Basic AI features</td></tr>
                   <tr className="border-b"><td className="p-4">Ease of Use</td><td className="p-4 text-green-600 font-medium">✅ Very Easy (One-click)</td><td className="p-4">⚠️ Steeper learning curve</td></tr>
                   <tr className="border-b"><td className="p-4">Price</td><td className="p-4 text-green-600 font-medium">✅ Affordable ($29/mo)</td><td className="p-4">❌ Can be expensive for pro features</td></tr>
-                  <tr><td className="p-4">Analytics</td><td className="p-4">️ Basic</td><td className="p-4 text-green-600 font-medium">✅ Deep Analytics</td></tr>
+                  <tr><td className="p-4">Analytics</td><td className="p-4">⚠️ Basic</td><td className="p-4 text-green-600 font-medium">✅ Deep Analytics</td></tr>
                 </tbody>
               </table>
             </div>
@@ -173,7 +173,7 @@ export default function TubeMagicReview() {
                 <li>• <strong>Time-Saver:</strong> Reduces metadata creation time from hours to minutes.</li>
                 <li>• <strong>SEO Boost:</strong> Optimized tags and titles help rank higher in search.</li>
                 <li>• <strong>User-Friendly:</strong> Clean interface, easy for beginners to use.</li>
-                <li>• <strong>Idea Generation:</strong> Great for overcoming creator’s block.</li>
+                <li>• <strong>Idea Generation:</strong> Great for overcoming creator's block.</li>
               </ul>
             </div>
             <div className="bg-red-50 p-6 rounded-xl border border-red-200">
@@ -230,7 +230,7 @@ export default function TubeMagicReview() {
           <section className="bg-gradient-to-br from-gray-900 to-blue-900 text-white p-8 rounded-2xl text-center">
             <h2 className="text-2xl font-bold mb-4">Final Verdict: Is Tube Magic AI Worth It?</h2>
             <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
-              If you are serious about growing your YouTube channel, Tube Magic AI is a worthy investment. It doesn’t just save time; it improves the quality of your metadata, which directly impacts your views and subscriber growth. While no tool can guarantee viral success, Tube Magic gives you a significant competitive edge. For $29/month, the ROI is substantial.
+              If you are serious about growing your YouTube channel, Tube Magic AI is a worthy investment. It doesn't just save time; it improves the quality of your metadata, which directly impacts your views and subscriber growth. While no tool can guarantee viral success, Tube Magic gives you a significant competitive edge. For $29/month, the ROI is substantial.
             </p>
             <a href={affiliateLink} target="_blank" rel="sponsored nofollow noopener"
                className="inline-block bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition shadow-lg">
