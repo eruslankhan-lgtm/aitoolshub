@@ -1,14 +1,12 @@
 import Link from 'next/link';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 
-// ✅ SEO Metadata
 export const metadata: Metadata = {
   title: 'Privacy Policy - AI Tools Point',
   description: 'Privacy policy for AI Tools Point. Learn how we handle your data, cookies, and affiliate disclosures.',
 };
 
-// ✅ Mobile Viewport
-export const viewport = {
+export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
 };
@@ -26,39 +24,26 @@ export default function PrivacyPolicy() {
         
         <div className="text-gray-700 leading-relaxed space-y-6">
           <p>
-            At <strong>AI Tools Point</strong>, we respect your privacy. This policy explains how we handle your data when you visit our website. By using our site, you agree to the collection and use of information in accordance with this policy.
+            At <strong>AI Tools Point</strong>, we respect your privacy. This policy explains how we handle your data when you visit our website.
           </p>
 
           <section>
             <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">1. Information We Collect</h2>
-            <p>
-              We may collect your email address if you subscribe to our newsletter or use our contact form. We do not sell, trade, or rent your personal identification information to third parties. All data is stored securely and used only to improve your experience.
-            </p>
+            <p>We may collect your email address if you subscribe to our newsletter. We do not sell, trade, or rent your personal information to third parties.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">2. Affiliate Disclosure</h2>
-            <p>
-              This site contains affiliate links. If you click on a link and make a purchase, we may earn a commission at <strong>no extra cost to you</strong>. We only recommend products and services that we have personally reviewed and believe will add value to our readers.
-            </p>
+            <p>This site contains affiliate links. If you click on a link and make a purchase, we may earn a commission at <strong>no extra cost to you</strong>. We only recommend products we have personally reviewed.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">3. Cookies & Tracking</h2>
-            <p>
-              We use cookies to improve user experience, analyze site traffic, and personalize content. You can choose to disable cookies through your browser settings, though this may affect site functionality.
-            </p>
+            <p>We use cookies to improve user experience and analyze site traffic. You can disable cookies through your browser settings.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">4. Third-Party Links</h2>
-            <p>
-              Our site may contain links to external websites. We are not responsible for the privacy practices or content of these third-party sites. We encourage you to read their privacy policies before providing any personal information.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">5. Contact Us</h2>
+            <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">4. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us at:</p>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-100 font-medium text-blue-800 mt-2">
               📧 Email: contact@aitoolspoint.site
