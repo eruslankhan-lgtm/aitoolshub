@@ -48,7 +48,7 @@ export default function ContactPage() {
           <section>
             <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">👨‍💻 Meet the Founder</h2>
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-              <h3 className="font-bold text-gray-800 mb-2">arslan khan</h3>
+              <h3 className="font-bold text-gray-800 mb-2">Arslan khan</h3>
               <p className="text-gray-600">
                 Founder & Chief Editor of AI Tools Point. Based in Pakistan, passionate about AI, affiliate marketing, and helping others succeed online.
               </p>
