@@ -4,7 +4,7 @@ import { Metadata, Viewport } from 'next';
 // ✅ SEO Metadata (CORRECT SYNTAX)
 export const metadata: Metadata = {
   title: 'About Us - AI Tools Point',
-  description: 'Learn about AI Tools Point, our mission to provide honest AI tool reviews, and our founder Eruslan Khan.',
+  description: 'Learn about AI Tools Point, our mission to provide honest AI tool reviews, and our founder Arsalan Khan.',
 };
 
 // ✅ Viewport (CORRECT SYNTAX)
@@ -37,16 +37,16 @@ export default function AboutPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">👨‍💻 Meet the Team</h2>
+            <h2 className="text-xl font-bold text-gray-800 mt-8 mb-3">👨‍💻 Meet the Founder</h2>
             <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-              <h3 className="font-bold text-blue-800 mb-2">AI Tools Point Team</h3>
+              <h3 className="font-bold text-blue-800 mb-2">Arsalan Khan</h3>
               <p className="text-gray-600">
-                We are a group of digital marketers, developers, and content creators who are passionate about exploring how AI can transform workspaces.
+                Founder & Chief Editor of AI Tools Point. Passionate about exploring how AI can transform digital workspaces and helping others succeed online.
               </p>
               <p className="text-gray-600 mt-3">
-                <strong>Founder:</strong> Eruslan Khan<br />
-                <strong>Role:</strong> Chief Editor & AI Researcher<br />
-                <strong>Location:</strong> Pakistan
+                <strong>Role:</strong> Founder & Chief Editor<br />
+                <strong>Location:</strong> Pakistan<br />
+                <strong>Focus:</strong> AI Tools, Affiliate Marketing, SEO
               </p>
             </div>
           </section>
