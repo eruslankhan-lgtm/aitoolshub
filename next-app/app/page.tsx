@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 // ============================================
-// SEO METADATA (Fixed Syntax)
+// SEO METADATA (CORRECT SYNTAX)
 // ============================================
-export const meta Metadata = {
+export const metadata: Metadata = {
   title: "AI Tools Hub - Best AI Tools & Honest Reviews 2026",
   description: "Discover the best AI tools for business, writing, YouTube growth, and productivity with honest reviews and exclusive deals.",
   keywords: ["AI tools", "AI software", "YouTube AI", "business automation", "writing tools", "AI reviews", "best AI tools 2026"],
@@ -15,7 +15,7 @@ export const viewport = {
 };
 
 // ============================================
-// AI TOOLS DATA (All New Reviews Added ✅)
+// AI TOOLS DATA (All Reviews Added ✅)
 // ============================================
 const tools = [
   {
