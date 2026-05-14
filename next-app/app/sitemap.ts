@@ -1,34 +1,80 @@
 import { MetadataRoute } from 'next';
-import tools from '@/data/tools.json';
+import tools from '../data/tools.json';
 
-// Strict type for JSON data to prevent TS errors
+// ✅ Tool type define karein (same as [slug]/page.tsx)
 type Tool = {
+  id: number;
+  name: string;
   slug: string;
+  category: string;
+  badge: string;
+  shortDescription: string;
+  fullDescription: string;
+  price: string;
+  priceCurrency: string;
+  priceNote: string;
+  rating: string;
+  reviewCount: string;
+  author: string;
+  datePublished: string;
+  featuredImage: string;
+  tags: string[];
+  pros: string[];
+  cons: string[];
+  affiliateLink: string;
   showOnHomepage: boolean;
 };
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://aitoolspoint.site';
+// ✅ FIXED: Double assertion for JSON import
+const typedTools = tools as unknown as Tool[];
 
-  // 1️⃣ Static Pages (Explicitly typed for zero errors)
+const baseUrl = 'https://aitoolspoint.site';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  // 1️⃣ Static Pages
   const staticPages: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/affiliate-disclosure`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/affiliate-disclosure`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
   ];
 
   // 2️⃣ Dynamic Review Pages (Auto-generated from tools.json)
-  const reviewPages: MetadataRoute.Sitemap = (tools as Tool[])
+  const reviewPages: MetadataRoute.Sitemap = typedTools
     .filter((tool) => tool.showOnHomepage)
     .map((tool) => ({
       url: `${baseUrl}/reviews/${tool.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
+      lastModified: new Date(tool.datePublished),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
     }));
 
-  // 3️⃣ Combine & Return
+  // ✅ Combine static + dynamic pages
   return [...staticPages, ...reviewPages];
 }
