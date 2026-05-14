@@ -1,3 +1,6 @@
+// ✅ Force dynamic rendering - har request par fresh data
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 // 🔍 DEBUG: Build time par console output
 if (typeof window === 'undefined') {
   console.log('🔍 [BUILD] Tools loaded:', (tools as unknown as Tool[]).length);
