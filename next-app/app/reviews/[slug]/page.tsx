@@ -1,3 +1,8 @@
+// 🔍 DEBUG: Build time par console output
+if (typeof window === 'undefined') {
+  console.log('🔍 [BUILD] Tools loaded:', (tools as unknown as Tool[]).length);
+  console.log('🔍 [BUILD] Slugs:', (tools as unknown as Tool[]).map(t => t.slug));
+}
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata } from 'next';
