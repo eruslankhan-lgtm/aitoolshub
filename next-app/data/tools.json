@@ -130,5 +130,39 @@
     "cons": ["Requires Microsoft PowerPoint (Windows/Mac)", "Pro features need paid subscription", "Internet connection needed for asset library"],
     "affiliateLink": "https://www.digistore24.com/redir/456090/eruslankhanf027/",
     "showOnHomepage": true
+  },
+  {
+    "id": 7,
+    "name": "DigiMember",
+    "slug": "digimember",
+    "category": "WordPress Membership Plugin",
+    "badge": "Recurring Commission",
+    "shortDescription": "Turn any WordPress site into a powerful membership platform with content protection & automated payments.",
+    "fullDescription": "DigiMember is a feature-rich WordPress plugin that transforms your website into a complete membership platform. Protect content, sell digital products, run online courses, manage subscriptions, and automate payments — all without coding. With integrations for PayPal, Stripe, email marketing tools, and advanced features like drip content, exams, certificates, and download protection, DigiMember is perfect for coaches, course creators, and digital entrepreneurs.",
+    "price": "97.00",
+    "priceCurrency": "USD",
+    "priceNote": "From $97 (one-time or subscription)",
+    "rating": "4.5",
+    "reviewCount": "287",
+    "author": "Arslan Khan",
+    "datePublished": "2026-05-16",
+    "featuredImage": "/images/digimember.jpg",
+    "tags": ["WordPress", "Membership", "Online Courses", "Content Protection", "Payments"],
+    "pros": [
+      "Easy WordPress plugin installation (5-minute setup)",
+      "Protect any content: pages, posts, downloads, videos",
+      "25% recurring commission on all payments",
+      "Integrates with PayPal, Stripe, and major email tools",
+      "Drip content: schedule content release over time",
+      "Built-in exams & personalized certificates",
+      "Secure download vault with access limits"
+    ],
+    "cons": [
+      "Requires WordPress (self-hosted)",
+      "Advanced features need PRO version",
+      "Learning curve for complete beginners"
+    ],
+    "affiliateLink": "https://www.digistore24.com/redir/256199/eruslankhanf027/",
+    "showOnHomepage": true
   }
 ]
