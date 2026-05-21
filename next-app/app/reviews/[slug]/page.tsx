@@ -1,18 +1,12 @@
-// ✅ Force dynamic rendering - har request par fresh data
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
-// 🔍 DEBUG: Build time par console output
-if (typeof window === 'undefined') {
-  console.log('🔍 [BUILD] Tools loaded:', (tools as unknown as Tool[]).length);
-  console.log('🔍 [BUILD] Slugs:', (tools as unknown as Tool[]).map(t => t.slug));
-}
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
-import tools from '../../../data/tools.json';
+import Script from 'next/script';
+import toolsData from '@/data/tools.json';
 
-// ✅ Tool type define karein
-type Tool = {
+// ✅ Tool Interface
+interface Tool {
   id: number;
   name: string;
   slug: string;
@@ -33,41 +27,61 @@ type Tool = {
   cons: string[];
   affiliateLink: string;
   showOnHomepage: boolean;
-};
-
-// ✅ FIXED: Double assertion for JSON import
-const typedTools = tools as unknown as Tool[];
-
-// ✅ Static params generate karein (SSG ke liye)
-export function generateStaticParams() {
-  return typedTools.map((tool) => ({ slug: tool.slug }));
 }
 
-// ✅ SEO Metadata
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const tool = typedTools.find((t) => t.slug === params.slug);
+// ✅ Type Assertion
+const tools = toolsData as Tool[];
+
+// ✅ Static Params (SSG)
+export function generateStaticParams() {
+  return tools.map((tool) => ({ slug: tool.slug }));
+}
+
+// ✅ SEO Metadata (Next.js 15 Compatible)
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const tool = tools.find(t => t.slug === slug);
   
-  if (!tool) {
-    return { title: 'Not Found', description: 'Tool not found' };
-  }
+  if (!tool) return { title: 'Not Found' };
   
   return {
     title: `${tool.name} Review 2026 - AI Tools Point`,
     description: tool.shortDescription,
     keywords: tool.tags.join(', '),
+    authors: [{ name: tool.author }],
+    openGraph: {
+      title: `${tool.name} Review 2026`,
+      description: tool.shortDescription,
+      images: [{ url: tool.featuredImage }],
+      type: 'article',
+      publishedTime: tool.datePublished,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${tool.name} Review`,
+      description: tool.shortDescription,
+      images: [tool.featuredImage],
+    },
   };
 }
 
-// ✅ Main Page Component
-export default function ReviewPage({ params }: { params: { slug: string } }) {
-  const tool = typedTools.find((t) => t.slug === params.slug);
-
-  if (!tool) {
-    notFound();
-  }
-
-  // ✅ Schema.org JSON-LD
-  const schemaData = {
+// ✅ Main Component (Next.js 15 Compatible)
+export default async function ReviewPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const { slug } = await params;
+  const tool = tools.find(t => t.slug === slug);
+  
+  if (!tool) notFound();
+  
+  // ✅ Schema.org JSON-LD (Numbers, not strings)
+  const schema = {
     "@context": "https://schema.org",
     "@type": "Review",
     "itemReviewed": {
@@ -82,8 +96,8 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
     },
     "reviewRating": {
       "@type": "Rating",
-      "ratingValue": tool.rating,
-      "bestRating": "5"
+      "ratingValue": parseFloat(tool.rating),
+      "bestRating": 5
     },
     "author": { "@type": "Person", "name": tool.author },
     "datePublished": tool.datePublished
@@ -91,17 +105,21 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {/* ✅ JSON-LD in <head> via next/script */}
+      <Script 
+        id="schema-jsonld" 
+        type="application/ld+json" 
+        strategy="beforeInteractive"
+      >
+        {JSON.stringify(schema)}
+      </Script>
       
       <main className="max-w-4xl mx-auto px-4 py-12">
         <Link href="/" className="text-blue-600 hover:underline mb-6 inline-block">
           ← Back to Homepage
         </Link>
 
+        {/* Header */}
         <header className="mb-8">
           <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-2">
             {tool.badge}
@@ -109,17 +127,23 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
           <h1 className="text-4xl font-bold mb-2">{tool.name} Review</h1>
           <p className="text-gray-600 text-lg">{tool.shortDescription}</p>
           
-          {tool.featuredImage && tool.featuredImage.startsWith('http') && (
-            <img 
+          {/* ✅ next/image for performance */}
+          {tool.featuredImage?.startsWith('http') && (
+            <Image 
               src={tool.featuredImage} 
               alt={tool.name}
+              width={800} 
+              height={300}
               className="mt-4 rounded-xl shadow-lg w-full h-48 object-cover"
-              loading="lazy"
+              priority={tool.showOnHomepage}
             />
           )}
         </header>
 
+        {/* Content Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-10">
+          
+          {/* Left: Description + Pros/Cons */}
           <div className="md:col-span-2 space-y-6">
             <div className="bg-white rounded-xl shadow p-6">
               <h2 className="text-2xl font-semibold mb-4">Overview</h2>
@@ -127,21 +151,23 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
+              {/* Pros */}
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-green-800 mb-3">✅ Pros</h3>
                 <ul className="space-y-2">
                   {tool.pros.map((pro, i) => (
-                    <li key={i} className="flex items-start gap-2 text-gray-700">
+                    <li key={`pro-${i}`} className="flex items-start gap-2 text-gray-700">
                       <span className="text-green-500 mt-1">•</span> {pro}
                     </li>
                   ))}
                 </ul>
               </div>
+              {/* Cons */}
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-red-800 mb-3">❌ Cons</h3>
                 <ul className="space-y-2">
                   {tool.cons.map((con, i) => (
-                    <li key={i} className="flex items-start gap-2 text-gray-700">
+                    <li key={`con-${i}`} className="flex items-start gap-2 text-gray-700">
                       <span className="text-red-500 mt-1">•</span> {con}
                     </li>
                   ))}
@@ -150,6 +176,7 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
+          {/* Right: Sticky Sidebar */}
           <aside className="bg-gray-50 rounded-xl p-6 h-fit sticky top-24 border">
             <div className="text-center mb-4">
               <p className="text-sm text-gray-500">Price</p>
@@ -174,6 +201,7 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
           </aside>
         </div>
 
+        {/* Tags */}
         <div className="flex flex-wrap gap-2">
           {tool.tags.map((tag) => (
             <span key={tag} className="px-3 py-1 bg-gray-200 rounded-full text-sm text-gray-700">
