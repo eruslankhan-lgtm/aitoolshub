@@ -1,52 +1,79 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import tools from '../../../data/tools.json';
+// ✅ Relative path (sab se safe option)
+import toolsData from '../../../data/tools.json';
 
-// ✅ Simple type for TypeScript
-type Tool = {
+// ✅ Force dynamic rendering (Cache bypass karega - 404 fix)
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+// ✅ Tool Interface (Type Safety ke liye)
+interface Tool {
   slug: string;
   name: string;
-  [key: string]: any;
-};
-
-const typedTools = tools as Tool[];
-
-// ✅ Generate static pages for all tools
-export function generateStaticParams() {
-  return typedTools.map((tool) => ({
-    slug: tool.slug,
-  }));
+  description?: string;
+  shortDescription?: string;
+  price?: string;
+  priceNote?: string;
+  category?: string;
+  rating?: string;
+  affiliateLink?: string;
+  [key: string]: any; // Baaki fields ke liye flexible
 }
 
-// ✅ Main Page Component
-export default function ReviewPage({ params }: { params: { slug: string } }) {
-  const tool = typedTools.find((t) => t.slug === params.slug);
+// ✅ Safe Data Load
+const tools = Array.isArray(toolsData) ? (toolsData as Tool[]) : [];
 
-  // ✅ Agar tool na mile toh 404
+// ✅ Next.js 15+ Compatible: params ko await karna zaroori hai
+export default async function ReviewPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const { slug } = await params;
+  
+  const tool = tools.find((t) => t.slug === slug);
+
+  // ✅ Agar tool na mile toh 404 dikhao aur return karo
   if (!tool) {
     notFound();
+    return null; 
   }
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
+    <main className="max-w-4xl mx-auto px-4 py-12 min-h-screen">
       <Link href="/" className="text-blue-600 hover:underline mb-6 inline-block">
         ← Back to Homepage
       </Link>
       
       <h1 className="text-4xl font-bold mb-4">{tool.name} Review</h1>
-      <p className="text-gray-600 mb-6">{tool.description || tool.shortDescription}</p>
       
-      <div className="bg-gray-50 p-6 rounded-xl">
-        <p><strong>Price:</strong> {tool.priceNote || tool.price}</p>
-        <p><strong>Category:</strong> {tool.category}</p>
-        <p><strong>Rating:</strong> ⭐ {tool.rating}</p>
+      <p className="text-gray-600 mb-6 text-lg">
+        {tool.description || tool.shortDescription || 'No description available.'}
+      </p>
+      
+      <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <p className="text-sm text-gray-500">Price</p>
+            <p className="font-semibold text-lg">{tool.priceNote || tool.price || 'N/A'}</p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-500">Category</p>
+            <p className="font-semibold">{tool.category || 'General'}</p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-500">Rating</p>
+            <p className="font-semibold text-yellow-600">⭐ {tool.rating || 'N/A'}</p>
+          </div>
+        </div>
       </div>
-      
+
       <a
-        href={tool.affiliateLink}
+        href={tool.affiliateLink || '#'}
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
-        className="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+        className="inline-block w-full md:w-auto text-center bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg"
       >
         Visit Official Website →
       </a>
