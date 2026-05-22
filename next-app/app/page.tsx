@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Metadata } from "next";
+import Script from "next/script";
+import { Metadata, Viewport } from "next";
 
-// ✅ SEO Metadata with Open Graph + Twitter
+// ✅ SEO & Social Metadata
 export const metadata: Metadata = {
   title: "AI Tools Point - Best AI Tools & Honest Reviews 2026",
   description: "Discover the best AI tools for business, writing, YouTube growth, and productivity with honest reviews and exclusive deals.",
@@ -11,23 +12,21 @@ export const metadata: Metadata = {
     description: "Discover the best AI tools for business, writing, YouTube growth, and productivity with honest reviews and exclusive deals.",
     images: [{ url: "https://aitoolspoint.site/og-image.jpg" }],
     type: "website",
-    locale: "en_US",
-    siteName: "AI Tools Point",
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Tools Point - Best AI Tools & Honest Reviews 2026",
-    description: "Discover the best AI tools for business, writing, YouTube growth, and productivity with honest reviews and exclusive deals.",
+    description: "Discover the best AI tools...",
     images: ["https://aitoolspoint.site/og-image.jpg"],
   },
 };
 
-export const viewport = {
+export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
 
-// ✅ Tool Type Interface (Reusable & Type-Safe)
+// ✅ Tool Interface
 interface Tool {
   id: number;
   name: string;
@@ -38,103 +37,113 @@ interface Tool {
   price: string;
   tags: string[];
   affiliateLink: string;
-  featuredImage?: string;
 }
 
-// ✅ Complete Tools Data (All 7 Tools + featuredImage)
+// ✅ COMPLETE DATA: All 7 Tools (Hardcoded for 100% reliability)
 const tools: Tool[] = [
   {
-    id: 1, name: "Tube Magic AI", slug: "tube-magic", category: "YouTube Growth", badge: "Top Rated",
+    id: 1,
+    name: "Tube Magic AI",
+    slug: "tube-magic",
+    category: "YouTube Growth",
+    badge: "Top Rated",
     description: "AI-powered assistant for YouTube creators. Generate viral titles, tags, and ideas in seconds.",
-    price: "$29/mo", tags: ["YouTube", "SEO", "Video AI"], 
-    affiliateLink: "https://tubemagic.com/ds#aff=eruslankhanf027",
-    featuredImage: "https://tubemagic.com/og.jpg"
+    price: "$29/mo",
+    tags: ["YouTube", "SEO", "Video AI"],
+    affiliateLink: "https://tubemagic.com/ds#aff=eruslankhanf027"
   },
   {
-    id: 2, name: "SEO & Marketing Ebooks Bundle", slug: "seo-ebooks", category: "Digital Marketing", badge: "Best Value",
+    id: 2,
+    name: "SEO & Marketing Ebooks Bundle",
+    slug: "seo-ebooks",
+    category: "Digital Marketing",
+    badge: "Best Value",
     description: "Lifetime access to 41 premium guides on SEO, Pinterest, Affiliate Marketing & more.",
-    price: "~$27 (One-Time)", tags: ["SEO", "Marketing", "Ebooks"], 
-    affiliateLink: "https://41ebookset3.neoseotools.com/#aff=eruslankhanf027",
-    featuredImage: "https://www.digistore24-app.com/pb/img/merchant_1435206/image/product/JP1WDWG1.png"
+    price: "~$27 (One-Time)",
+    tags: ["SEO", "Marketing", "Ebooks"],
+    affiliateLink: "https://41ebookset3.neoseotools.com/#aff=eruslankhanf027"
   },
   {
-    id: 3, name: "AI Book Writer", slug: "ai-book-writer", category: "Writing Software", badge: "New Release",
+    id: 3,
+    name: "AI Book Writer",
+    slug: "ai-book-writer",
+    category: "Writing Software",
+    badge: "New Release",
     description: "Write complete books & textbooks using GPT-5 & local AI. Lifetime desktop license.",
-    price: "€29.99 (One-Time)", tags: ["Writing", "AI", "Self-Publishing"], 
-    affiliateLink: "https://www.aibookwriter.de/en#aff=eruslankhanf027",
-    featuredImage: "https://www.digistore24-app.com/pb/img/merchant_1184524/image/product/R00ALJ76.png"
+    price: "€29.99 (One-Time)",
+    tags: ["Writing", "AI", "Self-Publishing"],
+    affiliateLink: "https://www.aibookwriter.de/en#aff=eruslankhanf027"
   },
   {
-    id: 4, name: "Remixable", slug: "remixable", category: "Business Automation", badge: "All-in-One",
+    id: 4,
+    name: "Remixable",
+    slug: "remixable",
+    category: "Business Automation",
+    badge: "All-in-One",
     description: "Build websites, create videos & develop software without coding. Founder pricing available.",
-    price: "One-Time Fee", tags: ["No-Code", "Software", "Marketing"], 
-    affiliateLink: "https://www.digistore24.com/redir/467549/eruslankhanf027/",
-    featuredImage: "https://www.digistore24-app.com/pb/img/merchant_1994757/image/product/CXI197DU.png"
+    price: "One-Time Fee",
+    tags: ["No-Code", "Software", "Marketing"],
+    affiliateLink: "https://www.digistore24.com/redir/467549/eruslankhanf027/"
   },
   {
-    id: 5, name: "Writelytic", slug: "writelytic", category: "AI Business Tools", badge: "Whitelabel Ready",
+    id: 5,
+    name: "Writelytic",
+    slug: "writelytic",
+    category: "AI Business Tools",
+    badge: "Whitelabel Ready",
     description: "Build, whitelabel & resell AI tools without coding. GPT-4o, DeepSeek support, custom domains.",
-    price: "$29/mo", tags: ["No-Code", "Whitelabel", "SaaS"], 
-    affiliateLink: "https://writelytic.com/#aff=eruslankhanf027",
-    featuredImage: "https://writelytic.com/logo.png"
+    price: "$29/mo",
+    tags: ["No-Code", "Whitelabel", "SaaS"],
+    affiliateLink: "https://writelytic.com/#aff=eruslankhanf027"
   },
-  // ✅ NEW: ExpertSlides (ID: 6)
+  // ✅ NEW: ExpertSlides
   {
-    id: 6, name: "ExpertSlides", slug: "expertslides", category: "Presentation Software", badge: "High Commission",
+    id: 6,
+    name: "ExpertSlides",
+    slug: "expertslides",
+    category: "Presentation Software",
+    badge: "High Commission",
     description: "1000+ professional PowerPoint templates & assets with one-click customization.",
-    price: "From €9.99/mo", tags: ["PowerPoint", "Presentations", "Design", "Business"], 
-    affiliateLink: "https://www.digistore24.com/redir/456090/eruslankhanf027/",
-    featuredImage: "https://expertslides.com/og-image.jpg"
+    price: "From €9.99/mo",
+    tags: ["PowerPoint", "Presentations", "Design", "Business"],
+    affiliateLink: "https://www.digistore24.com/redir/456090/eruslankhanf027/"
   },
-  // ✅ NEW: DigiMember (ID: 7)
+  // ✅ NEW: DigiMember
   {
-    id: 7, name: "DigiMember", slug: "digimember", category: "WordPress Membership Plugin", badge: "Recurring Commission",
+    id: 7,
+    name: "DigiMember",
+    slug: "digimember",
+    category: "WordPress Membership Plugin",
+    badge: "Recurring Commission",
     description: "Turn any WordPress site into a powerful membership platform with content protection & automated payments.",
-    price: "From $97", tags: ["WordPress", "Membership", "Online Courses", "Content Protection"], 
-    affiliateLink: "https://www.digistore24.com/redir/256199/eruslankhanf027/",
-    featuredImage: "/images/digimember.jpg"
+    price: "From $97",
+    tags: ["WordPress", "Membership", "Online Courses", "Content Protection"],
+    affiliateLink: "https://www.digistore24.com/redir/256199/eruslankhanf027/"
   }
 ];
 
 export default function Home() {
-  // ✅ Schema.org JSON-LD for Homepage (WebSite + Organization)
+  // ✅ Schema.org JSON-LD
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AI Tools Point",
     "url": "https://aitoolspoint.site",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://aitoolspoint.site/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  };
-
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AI Tools Point",
-    "url": "https://aitoolspoint.site",
-    "logo": "https://aitoolspoint.site/logo.png",
-    "sameAs": [
-      "https://twitter.com/aitoolspoint",
-      "https://pinterest.com/aitoolspoint"
-    ]
   };
 
   return (
     <>
-      {/* ✅ JSON-LD Schemas for Google */}
-      <script
+      {/* ✅ Inject Schema */}
+      <Script 
+        id="website-schema" 
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
+        strategy="beforeInteractive"
+      >
+        {JSON.stringify(websiteSchema)}
+      </Script>
       
-      <main className="min-h-screen bg-gray-50">
+      {/* ✅ WHITE BACKGROUND */}
+      <main className="min-h-screen bg-white">
         
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white py-20 px-4">
@@ -171,7 +180,7 @@ export default function Home() {
                 <div className="p-6 flex flex-col flex-1">
                   <p className="text-gray-600 leading-relaxed mb-5">{tool.description}</p>
                   
-                  {/* Tags - ✅ Fixed: key={tag} instead of key={i} */}
+                  {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-5">
                     {tool.tags.map((tag) => (
                       <span key={tag} className="bg-blue-50 text-blue-600 text-xs px-3 py-1 rounded-full">
@@ -195,9 +204,9 @@ export default function Home() {
                     >
                       Get Deal
                     </a>
-                    {/* ✅ CRITICAL FIX: /review/ (singular) instead of /reviews/ (plural) */}
+                    {/* ✅ CORRECT LINK: /reviews/ (plural) */}
                     <Link 
-                      href={`/review/${tool.slug}`}
+                      href={`/reviews/${tool.slug}`}
                       className="block w-full text-center border border-blue-600 text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition"
                     >
                       Read Review
